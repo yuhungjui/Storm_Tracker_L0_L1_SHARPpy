@@ -24,3 +24,7 @@ For example,
 ```
 python3 ST_L0_L1_SHARPpy.py ./Example/no_2968.csv 20210503184852
 ```
+
+## p.s.
+
+Feel free to play around the scriput in the /Example.
