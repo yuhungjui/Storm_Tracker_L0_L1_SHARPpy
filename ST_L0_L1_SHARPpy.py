@@ -6,6 +6,7 @@ Hungjui Yu
 """
 
 # %%
+import sys
 import pandas as pd
 from datetime import datetime 
 import pytz
@@ -15,12 +16,13 @@ from metpy.units import units
 # %%
 # Set ST node number:
 
-ST_no = 2968
+ST_no = sys.argv[1][-8:-4]
 
 # %%
 # Set ST launch time (UTC):
 
-launch_time_from_log = '20210503184852'
+# launch_time_from_log = '20210503184852'
+launch_time_from_log = sys.argv[2]
 
 # %%
 # Specified timezones:
@@ -37,7 +39,8 @@ launch_time_utc = tz_utc.localize(launch_time)
 
 # %%
 # Load raw data:
-L0_raw_data = pd.read_csv('../L0/' + launch_time_from_log[:8] + '/no_{}.csv'.format(ST_no))
+# L0_raw_data = pd.read_csv('../L0/' + launch_time_from_log[:8] + '/no_{}.csv'.format(ST_no))
+L0_raw_data = pd.read_csv(sys.argv[1])
 
 # %%
 # Convert the data time to datetime object:
