@@ -21,7 +21,6 @@ ST_no = sys.argv[1][-8:-4]
 # %%
 # Set ST launch time (UTC):
 
-# launch_time_from_log = '20210503184852'
 launch_time_from_log = sys.argv[2]
 
 # %%
@@ -65,17 +64,17 @@ L0_raw_data.loc[L0_raw_data['Direction(degree)'] > 180, 'WDIR'] = L0_raw_data['D
 L0_raw_data.loc[L0_raw_data['Speed(km/hr)'] == 0, 'WDIR'] = 0
 
 # %%
-# Find the launch time in ST Time:
+# Retrieve L1 data after launch time in ST Time & before balloon desecnds:
 
-L1_data_sharppy = L0_raw_data[L0_raw_data['Time'] >= launch_time_utc][ \
-                                                                      ['Pressure(hPa)', \
-                                                                       'Height(m)', \
-                                                                       'Temperature(degree C)', \
-                                                                       'dT(degC)', \
-                                                                       'WDIR', \
-                                                                       'WS(kts)'] \
-                                                                     ]
-
+L1_data_sharppy = L0_raw_data[ ( L0_raw_data['Time'] >= launch_time_utc ) & ( L0_raw_data.index <= L0_raw_data['Pressure(hPa)'].idxmin() ) ] \
+                              [['Pressure(hPa)' \
+                              ,'Height(m)' \
+                              ,'Temperature(degree C)' \
+                              ,'dT(degC)' \
+                              ,'WDIR' \
+                              ,'WS(kts)'] \
+                              ]
+    
 # %%
 # Output L1 data (ascii format):
 

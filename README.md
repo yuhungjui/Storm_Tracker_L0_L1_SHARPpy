@@ -1,6 +1,6 @@
 # Storm Tracker L0-L1 SHARPpy
 
-Convert Level-0 Storm Tracker data to Level-1 SHARPpy format for skew-T plot using SHARPpy.
+Convert Level-0 Storm Tracker (ST) data to Level-1 SHARPpy format for skew-T plot using SHARPpy.
 The output ascii file can be directly read by SHARPpy for skew-T diagram.
 
 More information on **SHARPpy**, please see: https://sharppy.github.io/SHARPpy/index.html
@@ -19,7 +19,7 @@ python3 ST_L0_L1_SHARPpy.py [/path/to/ST/file/no_XXXX.csv] [log_launch_time_YYYY
 The scripit us supported by python3.
 
 Where XXXX is the serial number of the ST.
-Specific for PRE-CIP 2021 field campaign, 2XXX.
+Specifically for PRE-CIP 2021 field campaign, the ST serial numbers are 2XXX.
 The input launch time is a 14-digits UTC date and time from year to second, YYYYMMDDHHmmss.
 
 For example,
