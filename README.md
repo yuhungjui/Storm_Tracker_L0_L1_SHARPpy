@@ -5,6 +5,8 @@ The output ascii file can be directly read by SHARPpy for skew-T diagram.
 
 More information on **SHARPpy**, please see: https://sharppy.github.io/SHARPpy/index.html
 
+Last update - 20210518 - Hungjui Yu
+
 ## Dependencies
 
 This script uses **pandas** for data management, and **metpy** for calculating meteorological variables.
