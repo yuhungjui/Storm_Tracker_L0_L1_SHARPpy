@@ -8,7 +8,7 @@ Hungjui Yu
 # %%
 import sys
 import pandas as pd
-from datetime import datetime 
+from datetime import datetime
 import pytz
 from metpy.calc import dewpoint_from_relative_humidity
 from metpy.units import units
@@ -73,15 +73,15 @@ L1_data_sharppy = L0_raw_data[ ( L0_raw_data['Time'] >= launch_time_utc ) & ( L0
                               ,'dT(degC)' \
                               ,'WDIR' \
                               ,'WS(kts)'] \
-                              ]
-    
+                              ].iloc[::10,:]
+
 # %%
 # Output L1 data (ascii format):
 
 L1_sharppy_filename = 'no_{}_L1_sharppy.txt'.format(ST_no)
 
 with open(L1_sharppy_filename, 'w') as file:
-    
+
     file.write('%TITLE%\n')
     file.write(' CSU-PRECIP-ST-{}'.format(ST_no) + ' ' + launch_time_from_log[2:8] + '/' + launch_time_from_log[8:12] + '\n')
     file.write('\n')
@@ -90,7 +90,7 @@ with open(L1_sharppy_filename, 'w') as file:
     file.write('%RAW%\n')
 
 L1_data_sharppy.to_csv(L1_sharppy_filename, mode='a', header=False, index=False)
-    
+
 with open(L1_sharppy_filename, 'a') as file:
-      
+
     file.write('%END%')
