@@ -89,7 +89,7 @@ with open(L1_sharppy_filename, 'w') as file:
     file.write('-------------------------------------------------------------------\n')
     file.write('%RAW%\n')
 
-L1_data_sharppy.to_csv(L1_sharppy_filename, mode='a', header=False, index=False)
+L1_data_sharppy.to_csv(L1_sharppy_filename, mode='a', header=False, index=False, , float_format='%.2f')
 
 with open(L1_sharppy_filename, 'a') as file:
 
