@@ -2,7 +2,7 @@
 Convert Level-0 Storm Tracker data to Level-1 SHARPpy format for skew-T plot using SHARPpy.
 
 Hungjui Yu
-20200517
+20200720
 """
 
 # %%
@@ -73,7 +73,7 @@ L1_data_sharppy = L0_raw_data[ ( L0_raw_data['Time'] >= launch_time_utc ) & ( L0
                               ,'dT(degC)' \
                               ,'WDIR' \
                               ,'WS(kts)'] \
-                              ].iloc[::10,:]
+                              ] .iloc[::5,:]
 
 # %%
 # Output L1 data (ascii format):
@@ -89,7 +89,7 @@ with open(L1_sharppy_filename, 'w') as file:
     file.write('-------------------------------------------------------------------\n')
     file.write('%RAW%\n')
 
-L1_data_sharppy.to_csv(L1_sharppy_filename, mode='a', header=False, index=False, , float_format='%.2f')
+L1_data_sharppy.to_csv(L1_sharppy_filename, mode='a', header=False, index=False, float_format='%.3f  ')
 
 with open(L1_sharppy_filename, 'a') as file:
 
